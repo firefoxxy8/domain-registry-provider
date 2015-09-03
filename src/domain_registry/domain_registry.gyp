@@ -77,30 +77,6 @@
       ],
     },
     {
-      'target_name': 'domain_registry_test',
-      'type': 'executable',
-      'dependencies': [
-        '../registry_tables_generator/registry_tables_generator.gyp:generate_registry_tables',
-        'assert_lib',
-        'domain_registry_lib',
-        'init_registry_tables_lib',
-        '<(DEPTH)/testing/gtest.gyp:gtest',
-        '<(DEPTH)/testing/gtest.gyp:gtest_main',
-      ],
-      'sources': [
-        'domain_registry_test.cc',
-        'private/registry_search_test.cc',
-        'private/string_util_test.cc',
-        'private/trie_search_test.cc',
-      ],
-      'conditions': [
-        ['OS=="linux" or OS=="freebsd" or OS=="openbsd" or OS=="solaris"', {
-          'cflags': [ '-pthread' ],
-          'ldflags': [ '-pthread' ],
-        }],
-      ],
-    },
-    {
       'target_name': 'domain_registry_perf_test',
       'suppress_wildcard': 1,
       'type': 'executable',
