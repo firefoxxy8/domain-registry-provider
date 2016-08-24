@@ -9,10 +9,11 @@ import shutil
 
 # Make an iOS (iOS + Simulator) library
 for lib_name in ['libassert_lib.a', 'libdomain_registry_lib.a', 'libinit_registry_tables_lib.a']:
+    for platform in ['ios', 'tvos']:
+    
+        lib_native_path = os.path.join(platform, lib_name)
+        lib_simulator_path = os.path.join('{}_simulator'.format(platform), lib_name)
+        lib_universal_path = os.path.join('{}_universal'.format(platform), lib_name)
 
-    lib_ios_path = os.path.join('ios', lib_name)
-    lib_osx_path = os.path.join('simulator', lib_name)
-    lib_final_path = os.path.join('ios_universal', lib_name)
-
-    # Merge the iOS and OS X slices into one universal binary
-    subprocess.call(['lipo', '-create', lib_ios_path, lib_osx_path, '-output', lib_final_path])
+        # Merge the native and simulator slices into one universal binary
+        subprocess.call(['lipo', '-create', lib_native_path, lib_simulator_path, '-output', lib_universal_path])
