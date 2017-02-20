@@ -21,3 +21,4 @@ To build a universal library (OS X & iOS), a script is available at ./create_uni
 
 In your project, you can then import the libraries as static dependencies and then add the domain_registry.h header.
 
+For updating, see: https://github.com/pagespeed/mod_pagespeed/wiki/Updating-the-Public-Suffix-List
