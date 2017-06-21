@@ -1,6 +1,11 @@
 This is the library I use in TrustKit to detect whether A is a subdomain of B.
 I had to make minor changes so that it builds for OS X and iOS.
 
+Generating the domain table
+======================
+
+    python src/registry_tables_generator/registry_tables_generator.py src/third_party/effective_tld_names/public_suffix_list.dat out.h out.test
+
 Build
 =====
 
